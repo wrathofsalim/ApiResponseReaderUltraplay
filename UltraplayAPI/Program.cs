@@ -1,5 +1,6 @@
 using UP.Api.BackgroundJob;
 using UP.Api.Configurations;
+using UP.DataLayer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+await app.InitialMigrate();
 
 app.UseHttpsRedirection();
 
